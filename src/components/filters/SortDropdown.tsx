@@ -30,14 +30,14 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex h-10 items-center gap-2 rounded-lg ${isOpen ? 'bg-zinc-900 dark:bg-zinc-900' : 'bg-white dark:bg-zinc-950'} px-3 text-gray-300 dark:text-gray-400`}
+        className={`flex h-10 items-center gap-2 rounded-lg ${isOpen ? ' dark:bg-zinc-900' : 'bg-white dark:bg-zinc-950'} px-3  dark:text-gray-400`}
       >
         <ArrowUpDown className="h-4 w-4" />
         <span className='lg:text-lg text-sm'>Sort</span>
       </button>
       
       {isOpen && (
-        <div className={`absolute ${isOpen ? 'bg-zinc-900 dark:bg-zinc-900' : 'bg-gray-300 dark:bg-zinc-700'} right-0 top-full mt-2 w-48 rounded-sm border border-zinc-700 p-1 shadow-lg z-50`}>
+        <div className={`absolute ${isOpen ? 'bg-gray-300 dark:bg-zinc-900' : 'bg-gray-300 dark:bg-zinc-700'} right-0 top-full mt-2 w-48 rounded-sm border border-gray-400 dark:border-zinc-700 p-1 shadow-lg z-50`}>
           {options.map((option) => (
             <button
               key={option.value}

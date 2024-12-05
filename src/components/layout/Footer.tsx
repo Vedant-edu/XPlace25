@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container py-8">
         <div className="">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-black dark:text-gray-300">XPlace'25</span>
+            <span className="font-semibold text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place'25</span>
           </div>
           <p className="text-sm text-gray-600 flex justify-between w-full">
             &copy; 2024, All rights reserved

@@ -33,9 +33,9 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
   ${activeTab === 'entc' 
     ? 'bg-green-100 dark:bg-emerald-950 border-green-400 dark:border-green-800' 
     : activeTab === 'scoe' 
-    ? 'bg-blue-100 dark:bg-slate-800 border-blue-400 dark:border-blue-800' 
-    : 'bg-purple-100 dark:bg-purple-950 border-purple-400 dark:border-purple-800'
-  } w-16 h-16 p-4 border-2 border-gray-900 dark:border-gray-200`}
+    ? 'bg-blue-100 dark:bg-slate-800  border-red-900 dark:border-blue-800' 
+    : 'bg-purple-100 dark:bg-violet-950 border-purple-400 dark:border-purple-800'
+  } w-16 h-16 p-4 border-2 `}
 >
           <span className="text-2xl font-bold dark:text-gray-300">{displayCount}</span>
         </div>
