@@ -15,11 +15,11 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
   if (activeTab === 'scoe' && data.scoe_students === 0) return null;
 
   return (
-    <div className="bg-gray-200 px-6 py-3 rounded-lg relative ">
+    <div className="bg-gray-200 dark:bg-zinc-800 px-6 py-4 lg:rounded-lg rounded-sm relative ">
       <div className="flex justify-between items-center ">
         <div className=" ">
-          <h3 className="text-2xl font-bold">{data.company_name}</h3>
-          <p className="text-gray-600 text-lg">
+          <h3 className="text-xl lg:text-2xl font-bold text-black dark:text-gray-200">{data.company_name}</h3>
+          <p className="text-gray-600 dark:text-gray-400 lg:text-lg text-sm">
             {data.package} LPA 
             {activeTab === 'all' && (
               <>
@@ -29,8 +29,15 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
             )}
           </p>
         </div>
-        <div className={`student-count relative flex items-center justify-center rounded-full ${activeTab === 'entc' ? 'bg-green-100 border-green-400' : activeTab === 'scoe' ? 'bg-blue-100 border-blue-400' : 'bg-purple-100 border-purple-400'} w-16 h-16 p-4 border-2 border-gray-900`}>
-          <span className="text-2xl font-bold">{displayCount}</span>
+        <div className={`student-count relative flex items-center justify-center rounded-full 
+  ${activeTab === 'entc' 
+    ? 'bg-green-100 dark:bg-emerald-950 border-green-400 dark:border-green-800' 
+    : activeTab === 'scoe' 
+    ? 'bg-blue-100 dark:bg-slate-800 border-blue-400 dark:border-blue-800' 
+    : 'bg-purple-100 dark:bg-purple-950 border-purple-400 dark:border-purple-800'
+  } w-16 h-16 p-4 border-2 border-gray-900 dark:border-gray-200`}
+>
+          <span className="text-2xl font-bold dark:text-gray-300">{displayCount}</span>
         </div>
       </div>
     </div>

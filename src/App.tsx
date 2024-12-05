@@ -1,10 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { PlacementDashboard } from './components/dashboard/PlacementDashboard';
+import { ThemeProvider } from './components/ui/theme-provider';
 
 
 function App() {
   return (
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
     <div className="min-h-screen bg-white">
       <Routes>
         <Route path="/" element={<PlacementDashboard />} />
@@ -22,6 +24,7 @@ function App() {
         }}
       />
     </div>
+    </ThemeProvider>
   );
 }
 
