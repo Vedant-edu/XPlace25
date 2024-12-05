@@ -56,7 +56,8 @@ export function PlacementDashboard() {
     currentPage * itemsPerPage
   );
 
-  const totalOffers = sortedAndFilteredData.reduce((acc, curr) => {
+  // Calculate total offers without considering search term
+  const totalOffers = data.reduce((acc, curr) => {
     if (activeTab === 'entc') return acc + curr.entc_students;
     if (activeTab === 'scoe') return acc + curr.scoe_students;
     return acc + curr.total_students;

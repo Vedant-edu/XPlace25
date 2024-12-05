@@ -23,8 +23,8 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
             {data.package} LPA 
             {activeTab === 'all' && (
               <>
-                <span className='ml-2 px-2 bg-green-100 text-sm rounded-lg'> ENTC: {data.entc_students} </span>
-                <span className='ml-2 px-2 bg-sky-100 text-sm rounded-lg'> SCoE: {data.scoe_students}</span>
+                <span className='ml-2 px-2 bg-green-100 dark:bg-emerald-900 text-sm rounded-lg'> ENTC: {data.entc_students} </span>
+                <span className='ml-2 px-2 bg-sky-100 dark:bg-slate-900 text-sm rounded-lg'> SCoE: {data.scoe_students}</span>
               </>
             )}
           </p>
