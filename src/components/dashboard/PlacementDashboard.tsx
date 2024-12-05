@@ -15,7 +15,7 @@ export function PlacementDashboard() {
   const [data, setData] = useState<PlacementData[]>([]);
   const [sortBy, setSortBy] = useState<'recent' | 'package' | 'students'>('recent');
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 7;
 
   useEffect(() => {
     fetchData();
