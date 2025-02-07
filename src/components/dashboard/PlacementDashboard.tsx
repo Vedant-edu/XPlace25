@@ -2,20 +2,18 @@ import { useState, useEffect } from 'react';
 
 import { supabase } from '@/lib/supabase';
 import { PlacementData } from '@/types';
-import { Search} from 'lucide-react';
+import { Search } from 'lucide-react';
 import { PlacementCard } from '../placement/PlacementCard';
 import { SortDropdown } from '../filters/SortDropdown';
-import { Pagination } from '../ui/Pagination';
 import { Footer } from '../layout/Footer';
 import ThemeToggle from '../ui/theme-toggle';
+import SponsorLink from '../ui/SponsorLink';
 
 export function PlacementDashboard() {
   const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'all'>('entc');
   const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState<PlacementData[]>([]);
   const [sortBy, setSortBy] = useState<'recent' | 'package' | 'students'>('recent');
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7;
 
   useEffect(() => {
     fetchData();
@@ -36,7 +34,7 @@ export function PlacementDashboard() {
   };
 
   const sortedAndFilteredData = data
-    .filter(item => 
+    .filter(item =>
       item.company_name.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => {
@@ -50,12 +48,6 @@ export function PlacementDashboard() {
       }
     });
 
-  const totalPages = Math.ceil(sortedAndFilteredData.length / itemsPerPage);
-  const currentData = sortedAndFilteredData.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
   // Calculate total offers without considering search term
   const totalOffers = data.reduce((acc, curr) => {
     if (activeTab === 'entc') return acc + curr.entc_students;
@@ -65,12 +57,21 @@ export function PlacementDashboard() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950">
+      <SponsorLink />
       <main className="container mt-2 flex-1 ">
         <div className="flex justify-between items-center">
-          <h1 className="lg:text-2xl text-lg font-extrabold py-2 ml-1 text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place'25</h1>
-          <ThemeToggle/>
+          <h1 className="lg:text-2xl text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
+            <span className="text-orange-500">X</span>Place'25
+            <div className="flex items-start">
+              {/* <p className="text-[7px] mr-1 ">Sponsored by</p>
+    <p className="text-sm font-semibold">TDL Techsphere</p> */}
+            </div>
+          </h1>
+
+
+          <ThemeToggle />
         </div>
-        
+
         <div className="search-container relative w-full max-w-3xl mx-auto mt-0 md:mt-8">
           <Search className="absolute left-1 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 ml-4" />
           <input
@@ -82,25 +83,24 @@ export function PlacementDashboard() {
           />
         </div>
 
-        <div className="tab-filter flex flex-wrap items-center justify-between gap-2 mt-3 mb-4">
+        <div className="tab-filter flex flex-wrap items-center justify-between gap-2 mt-2 mb-2">
           <div className='bg-gray-100 dark:bg-zinc-800 dark:text-gray-300 rounded-full'><button
             onClick={() => setActiveTab('entc')}
-            className={`tab-button px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === 'entc' ? 'bg-black dark:bg-gray-600 text-white' : ''}`}
+            className={`tab-button px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === 'entc' ? 'bg-black dark:bg-emerald-900 text-white' : ''}`}
           >
-            ENTC
+            ENTC <sup className='text-[8px]'>SCOE</sup>
           </button>
-          <button
-            onClick={() => setActiveTab('scoe')}
-            className={`tab-button px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === 'scoe' ? 'bg-black dark:bg-gray-600 text-white' : ''}`}
-          >
-            SCOE
-          </button>
-          <button
-            onClick={() => setActiveTab('all')}
-            className={`tab-button px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === 'all' ? 'bg-black dark:bg-gray-600 text-white' : ''}`}
-          >
-            ALL
-          </button></div>
+            <button
+              onClick={() => setActiveTab('scoe')}
+              className={`tab-button px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === 'scoe' ? 'bg-black dark:bg-blue-800 text-white' : ''}`}
+            >
+              SCOE
+            </button>
+            <button
+              onClick={() => setActiveTab('all')}
+              className={`tab-button px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activeTab === 'all' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
+            >STES
+            </button></div>
           <div className="flex-1" />
           <SortDropdown value={sortBy} onChange={setSortBy} />
         </div>
@@ -113,20 +113,14 @@ export function PlacementDashboard() {
         </div>
 
         <div className="space-y-1">
-          {currentData.map((item) => (
-            <PlacementCard 
-              key={item.id} 
-              data={item} 
+          {sortedAndFilteredData.map((item) => (
+            <PlacementCard
+              key={item.id}
+              data={item}
               activeTab={activeTab}
             />
           ))}
         </div>
-
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
       </main>
       <Footer />
     </div>
