@@ -7,7 +7,8 @@ import { PlacementCard } from '../placement/PlacementCard';
 import { SortDropdown } from '../filters/SortDropdown';
 import { Footer } from '../layout/Footer';
 import ThemeToggle from '../ui/theme-toggle';
-import SponsorLink from '../ui/SponsorLink';
+import Announcement from '../ui/announcement';
+import Pop from '../ui/Pop';
 
 export function PlacementDashboard() {
   const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'all'>('entc');
@@ -57,7 +58,8 @@ export function PlacementDashboard() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950">
-      <SponsorLink />
+      <Pop/>
+      <Announcement />
       <main className="container mt-2 flex-1 ">
         <div className="flex justify-between items-center">
           <h1 className="lg:text-2xl text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">

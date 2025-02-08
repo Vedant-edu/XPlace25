@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import SponsorLink from '../ui/SponsorLink';
 
 export function Footer() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
@@ -6,7 +7,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white dark:border-gray-800 mt-8 ">
       <div className="container py-8">
-        <div className="flex flex-col items-center bg-stone-100 dark:bg-stone-800 p-4 m-2 mb-4 rounded-3xl">
+        <div className="flex flex-col items-center bg-stone-100 dark:bg-stone-800 p-4  rounded-tl-3xl rounded-tr-3xl">
           <span className="text-sm text-gray-600 dark:text-gray-600 text-center mb-2 font-semibold">Our Sponsor</span>
           <div className="flex items-center gap-4 mt-4">
             <img
@@ -19,8 +20,9 @@ export function Footer() {
             </span>
           </div>
         </div>
+          <SponsorLink/>
 
-        <div className="">
+        <div className=" mt-4">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place'25</span>
           </div>
@@ -34,6 +36,12 @@ export function Footer() {
                 <h2 className="text-lg font-bold mb-2 dark:text-gray-300">Disclaimer</h2>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   The information provided on this platform is for general informational purposes only. All information on the platform is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the platform.
+                  <br />
+                  It is important to note that the information available on this platform is primarily sourced from open channels such as LinkedIn and other publicly accessible resources. We are not affiliated with any organization, and the data presented here is not endorsed or verified by any corporate entity. Users should exercise their own judgment and discretion when interpreting the information provided.
+                  <br />
+                  Under no circumstance shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the platform or reliance on any information provided on the platform. Your use of the platform and your reliance on any information on the platform is solely at your own risk. We encourage users to cross-verify the information with official sources and remain informed about any updates or changes that may occur.
+
+
                 </p>
                 <button onClick={() => setShowDisclaimer(false)} className="mt-4 text-blue-500 underline dark:text-blue-700">Close</button>
               </div>
