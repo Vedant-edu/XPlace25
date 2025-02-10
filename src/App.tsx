@@ -8,7 +8,6 @@ function App() {
   return (
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
     <div className="min-h-screen bg-white">
-      5b0ace67fa7b66a67cc2e247cb1bd97c118f28a3
       <Routes>
         <Route path="/" element={<PlacementDashboard />} />
 
