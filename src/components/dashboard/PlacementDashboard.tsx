@@ -59,7 +59,7 @@ export function PlacementDashboard() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950">
       <Pop/>
-      <Announcement />
+{/*       <Announcement /> */}
       <main className="container mt-2 flex-1 ">
         <div className="flex justify-between items-center">
           <h1 className="lg:text-2xl text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
