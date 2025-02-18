@@ -7,17 +7,16 @@ export function ThemeToggle() {
   
   return (
     <Button
-    className="dark:bg-zinc-800"
       variant="ghost"
       size="icon"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      <Moon className={`h-[1.2rem] w-[1.2rem] ${
+      <Moon className={`h-[1.2rem] w-[1.2rem] ml-3 ${
         theme === "light" 
           ? "rotate-0 scale-100" 
           : "-rotate-90 scale-0"
       } transition-all absolute`} />
-      <Sun className={`h-[1.2rem] w-[1.2rem] ${
+      <Sun className={`h-[1.2rem] w-[1.2rem] ml-3 ${
         theme === "light" 
           ? "rotate-90 scale-0" 
           : "rotate-0 scale-100"
