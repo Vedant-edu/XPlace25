@@ -30,7 +30,7 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex h-10 items-center gap-2 rounded-lg ${isOpen ? ' dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-950'} px-3  dark:text-gray-400`}
+        className={`flex h-10 items-center gap-2 rounded-md ${isOpen ? ' dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-900'} px-3  dark:text-gray-400`}
       >
         <ArrowUpDown className="h-4 w-4" />
       
@@ -45,7 +45,7 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
                 onChange(option.value);
                 setIsOpen(false);
               }}
-              className="flex w-full items-center rounded-md px-3 py-2 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+              className="flex w-full items-center rounded-sm px-3 py-2 text-sm transition-colors hover:bg-gray-200 dark:hover:bg-zinc-800"
             >
               <p className='text-black dark:text-gray-300'>{option.label}</p>
             </button>

@@ -15,7 +15,7 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
   if (activeTab === 'scoe' && data.scoe_students === 0) return null;
 
   return (
-    <div className="bg-gray-200 dark:bg-zinc-800 px-6 py-4 lg:rounded-lg rounded-sm relative ">
+    <div className="bg-zinc-200 dark:bg-zinc-900 px-6 py-4 lg:rounded-lg rounded-sm relative ">
       <div className="flex justify-between items-center ">
         <div className=" ">
           <h3 className="text-xl lg:text-2xl font-bold text-black dark:text-gray-200">{data.company_name}</h3>

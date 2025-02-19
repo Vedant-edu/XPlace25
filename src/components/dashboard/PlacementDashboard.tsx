@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 
 import { supabase } from '@/lib/supabase';
 import { PlacementData } from '@/types';
-import { Search } from 'lucide-react';
 import { PlacementCard } from '../placement/PlacementCard';
 import { SortDropdown } from '../filters/SortDropdown';
 import { Footer } from '../layout/Footer';
@@ -62,17 +61,26 @@ export function PlacementDashboard() {
       {/* <Announcement /> */}
       <main className="container mt-2 flex-1 ">
         
-
-        <div className="search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8">
+      <h1 className="lg:text-2xl lg:block hidden text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
+            <span className="text-orange-500">X</span>Place'25
+            <div className="flex items-start">
+              {/* <p className="text-[7px] mr-1 ">Sponsored by</p>
+    <p className="text-sm font-semibold">TDL Techsphere</p> */}
+            </div>
+          </h1>
+        <div className="lg:pl-6 search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1 bg-zinc-200 dark:bg-zinc-900 rounded-full pr-5">
           
-          <Search className="absolute left-1 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500 ml-4" />
+          <div className='pl-4 pr-2 text-[12px] lg:hidden'>
+          <span className='text-orange-500 dark'>X</span>
+          <span className='dark:text-white'>Place</span>
+          </div>
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search companies...."
-            className="w-full h-12 pl-12 pr-4 rounded-full border border-black lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500 bg-gray-100/80 dark:bg-zinc-800 text-black dark:text-gray-300 "
-          />
+            className="w-full h-12 pr-4 rounded-full  lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500 bg-transparent dark:bg-transparent text-black dark:text-gray-300 "
+          /> <div className='text-gray-300 dark:text-slate-800 mr-2 text-[30px]'>|</div>
             <ThemeToggle/>
           <div className="">
             <SortDropdown value={sortBy} onChange={setSortBy} />
@@ -82,25 +90,25 @@ export function PlacementDashboard() {
         <div className="tab-filter flex flex-wrap items-center justify-between gap-2 mt-2 mb-2">
           <button
             onClick={() => setActiveTab('entc')}
-            className={`tab-button px-4 py-1.5 text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'entc' ? 'bg-black dark:bg-emerald-900 text-white' : ''}`}
+            className={`tab-button px-4 py-1.5 text-black dark:text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'entc' ? 'bg-black dark:bg-emerald-900 text-white' : ''}`}
           >
             ENTC <sup className='text-[8px]'>SCOE</sup>
           </button>
           <button
             onClick={() => setActiveTab('scoe')}
-            className={`tab-button px-4 py-1.5 text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'scoe' ? 'bg-black dark:bg-blue-800 text-white' : ''}`}
+            className={`tab-button px-4 py-1.5 text-black dark:text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'scoe' ? 'bg-black dark:bg-blue-800 text-white' : ''}`}
           >
             SCOE
           </button>
           <button
             onClick={() => setActiveTab('all')}
-            className={`tab-button px-4 py-1.5 text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'all' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
+            className={`tab-button px-4 py-1.5 text-black dark:text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'all' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
           >STES
           </button>
           <div className="flex-1" />
         </div>
 
-        <div className="total-offers bg-gray-200 dark:bg-zinc-800 lg:rounded-[2rem] rounded-sm px-6 py-4 md:p-6 mb-8 md:mb-8 flex justify-between items-center">
+        <div className="total-offers bg-zinc-200 dark:bg-zinc-900 lg:rounded-[2rem] rounded-sm px-6 py-4 md:p-6 mb-8 md:mb-8 flex justify-between items-center">
           <div className="flex justify-between items-center w-full">
             <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total Offers</h3>
             

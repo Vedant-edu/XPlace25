@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SponsorLink from '../ui/SponsorLink';
+import TextPressure from '../ui/anim';
 
 export function Footer() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
@@ -7,7 +8,7 @@ export function Footer() {
   return (
     <footer className="border-t border-white dark:border-gray-800 mt-8 ">
       <div className="container py-8">
-        <div className="flex flex-col items-center bg-stone-100 dark:bg-stone-800 p-4  rounded-tl-3xl rounded-tr-3xl">
+        <div className="flex flex-col items-center bg-stone-100 dark:bg-stone-900 p-4  rounded-tl-3xl rounded-tr-3xl">
           <span className="text-sm text-gray-600 dark:text-gray-600 text-center mb-2 font-semibold">Our Sponsor</span>
           <div className="flex items-center gap-4 mt-4">
             <img
@@ -32,7 +33,7 @@ export function Footer() {
           </p>
           {showDisclaimer && (
             <div className="fixed inset-0 bg-black/50 flex items-center justify-center h-screen">
-              <div className="bg-white dark:bg-zinc-800 p-4 rounded-lg">
+              <div className="bg-white dark:bg-zinc-900 p-4 rounded-lg">
                 <h2 className="text-lg font-bold mb-2 dark:text-gray-300">Disclaimer</h2>
                 <p className="text-sm text-gray-600 dark:text-gray-300">
                   The information provided on this platform is for general informational purposes only. All information on the platform is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability, or completeness of any information on the platform.
@@ -50,6 +51,7 @@ export function Footer() {
 
         </div>
       </div>
+ 
     </footer>
   );
 }
