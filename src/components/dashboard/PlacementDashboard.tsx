@@ -8,6 +8,7 @@ import { Footer } from '../layout/Footer';
 import ThemeToggle from '../ui/theme-toggle';
 // import Announcement from '../ui/announcement';
 import Pop from '../ui/Pop';
+import AnimatedCounter from '../ui/animatedcounter';
 
 export function PlacementDashboard() {
   const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'all'>('entc');
@@ -64,13 +65,12 @@ export function PlacementDashboard() {
       <h1 className="lg:text-2xl lg:block hidden text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
             <span className="text-orange-500">X</span>Place'25
             <div className="flex items-start">
-              {/* <p className="text-[7px] mr-1 ">Sponsored by</p>
-    <p className="text-sm font-semibold">TDL Techsphere</p> */}
+            
             </div>
           </h1>
         <div className="lg:pl-6 search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1 bg-zinc-200 dark:bg-zinc-900 rounded-full pr-5">
           
-          <div className='pl-4 pr-2 text-[12px] lg:hidden'>
+          <div className='pl-4 pr-2 text-[14px] lg:hidden text-semibold'>
           <span className='text-orange-500 dark'>X</span>
           <span className='dark:text-white'>Place</span>
           </div>
@@ -112,7 +112,7 @@ export function PlacementDashboard() {
           <div className="flex justify-between items-center w-full">
             <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total Offers</h3>
             
-            <span className="text-2xl font-bold bg-blue-100 dark:bg-slate-800 dark:text-gray-300 border-2 border-blue-500 w-12 h-12 p-3 rounded-full flex items-center justify-center">{totalOffers}</span>
+            <span className="text-2xl font-bold bg-blue-100 dark:bg-slate-800 dark:text-gray-300 border-2 border-blue-500 w-12 h-12 p-3 rounded-full flex items-center justify-center"><AnimatedCounter value={totalOffers} duration={activeTab === 'entc' ? 5000 : 2000} /></span>
           </div>
         </div>
 

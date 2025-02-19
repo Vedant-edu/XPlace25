@@ -25,10 +25,10 @@ export function Footer() {
 
         <div className=" mt-4">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place'25</span>
+            <span className="font-semibold text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place <sup className='text-[10px]'>25</sup></span>
           </div>
           <p className="text-sm text-gray-600 flex justify-between w-full">
-            &copy; 2024, All rights reserved
+            &copy; 2025, All rights reserved
             <button onClick={() => setShowDisclaimer(true)} className="text-blue-500 underline dark:text-blue-700">Disclaimer</button>
           </p>
           {showDisclaimer && (
