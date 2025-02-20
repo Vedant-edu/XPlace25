@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { PlacementDashboard } from './components/dashboard/PlacementDashboard';
 import { ThemeProvider } from './components/ui/theme-provider';
+import CompaniesVisited from './components/ui/CompaniesVisited';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="min-h-screen bg-white">
       <Routes>
         <Route path="/" element={<PlacementDashboard />} />
+        <Route path="/companies-visited" element={<CompaniesVisited />} />
 
       </Routes>
       <Toaster 

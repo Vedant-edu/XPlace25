@@ -1,4 +1,5 @@
 import { PlacementData } from '@/types';
+import AnimatedCounter from '../ui/animatedcounter';
 
 interface PlacementCardProps {
   data: PlacementData;

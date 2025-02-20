@@ -7,8 +7,8 @@ function Announcement() {
 
   return (
     <div>
-      <div className="text-center p-1 bg-gray-400 dark:bg-yellow-950 flex justify-between items-center gap-4">
-        <p className="text-sm font text-white dark:text-gray-300 flex-1">
+      <div className="text-center  bg-gray-400 dark:bg-yellow-950/50 flex justify-between items-center gap-4">
+        <p className="text-[12px] font text-white dark:text-gray-300 flex-1">
           Checkout Magazine by TDL Techsphere.{' '}
           <a href="https://techsphereinsights.in/" className="text-blue-200 underline">view here</a>
         </p>

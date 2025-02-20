@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { supabase } from '@/lib/supabase';
 import { PlacementData } from '@/types';
@@ -9,6 +10,7 @@ import ThemeToggle from '../ui/theme-toggle';
 // import Announcement from '../ui/announcement';
 import Pop from '../ui/Pop';
 import AnimatedCounter from '../ui/animatedcounter';
+// import Announcement from '../ui/announcement';
 
 export function PlacementDashboard() {
   const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'all'>('entc');
@@ -61,18 +63,18 @@ export function PlacementDashboard() {
       <Pop />
       {/* <Announcement /> */}
       <main className="container mt-2 flex-1 ">
-        
-      <h1 className="lg:text-2xl lg:block hidden text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
-            <span className="text-orange-500">X</span>Place'25
-            <div className="flex items-start">
-            
-            </div>
-          </h1>
+
+        <h1 className="lg:text-2xl lg:block hidden text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
+          <span className="text-orange-500">X</span>Place'25
+          <div className="flex items-start">
+
+          </div>
+        </h1>
         <div className="lg:pl-6 search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1 bg-zinc-200 dark:bg-zinc-900 rounded-full pr-5">
-          
+
           <div className='pl-4 pr-2 text-[14px] lg:hidden text-semibold'>
-          <span className='text-orange-500 dark'>X</span>
-          <span className='dark:text-white'>Place</span>
+            <span className='text-orange-500 dark'>X</span>
+            <span className='dark:text-white'>Place</span>
           </div>
           <input
             type="text"
@@ -81,7 +83,7 @@ export function PlacementDashboard() {
             placeholder="Search companies...."
             className="w-full h-12 pr-4 rounded-full  lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500 bg-transparent dark:bg-transparent text-black dark:text-gray-300 "
           /> <div className='text-gray-300 dark:text-slate-800 mr-2 text-[30px]'>|</div>
-            <ThemeToggle/>
+          <ThemeToggle />
           <div className="">
             <SortDropdown value={sortBy} onChange={setSortBy} />
           </div>
@@ -106,12 +108,13 @@ export function PlacementDashboard() {
           >STES
           </button>
           <div className="flex-1" />
+          <Link to="/companies-visited" className="text-blue-500 hover:text-blue-700">New</Link>
         </div>
 
         <div className="total-offers bg-zinc-200 dark:bg-zinc-900 lg:rounded-[2rem] rounded-sm px-6 py-4 md:p-6 mb-8 md:mb-8 flex justify-between items-center">
           <div className="flex justify-between items-center w-full">
             <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total Offers</h3>
-            
+
             <span className="text-2xl font-bold bg-blue-100 dark:bg-slate-800 dark:text-gray-300 border-2 border-blue-500 w-12 h-12 p-3 rounded-full flex items-center justify-center"><AnimatedCounter value={totalOffers} duration={activeTab === 'entc' ? 5000 : 2000} /></span>
           </div>
         </div>
