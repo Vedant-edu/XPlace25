@@ -1,4 +1,5 @@
 import React from 'react';
+import SplashCursor from './splash';
 
 
 const CompaniesVisited: React.FC = () => {
@@ -592,7 +593,7 @@ const CompaniesVisited: React.FC = () => {
           "job_title": "Software Engineer (Trainee)"
         }
       ];
-    return (
+    return (<><SplashCursor/>
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <h1 className="lg:text-2xl text-3xl font-extrabold py-2 ml-1 text-black dark:text-gray-300">
@@ -638,6 +639,7 @@ const CompaniesVisited: React.FC = () => {
           ))}
         </div>
       </div>
+      </>
     );
 };
 
