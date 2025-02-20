@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import SponsorLink from '../ui/SponsorLink';
-import TextPressure from '../ui/anim';
 
 export function Footer() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
 
   return (
-    <footer className="border-t border-white dark:border-gray-800 mt-8 ">
+    <footer className="border-t dark:bg-black border-white dark:border-gray-800 pt-8 ">
       <div className="container py-8">
         <div className="flex flex-col items-center bg-stone-100 dark:bg-stone-900 p-4  rounded-tl-3xl rounded-tr-3xl">
           <span className="text-sm text-gray-600 dark:text-gray-600 text-center mb-2 font-semibold">Our Sponsor</span>
@@ -25,7 +24,7 @@ export function Footer() {
 
         <div className=" mt-4">
           <div className="flex items-center gap-2">
-            <span className="font-semibold text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place <sup className='text-[10px]'>25</sup></span>
+            <span className="font-semibold text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place <sup className='text-[10px]'>'25</sup></span>
           </div>
           <p className="text-sm text-gray-600 flex justify-between w-full">
             &copy; 2025, All rights reserved

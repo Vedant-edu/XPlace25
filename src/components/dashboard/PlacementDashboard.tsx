@@ -108,7 +108,9 @@ export function PlacementDashboard() {
           >STES
           </button>
           <div className="flex-1" />
-          <Link to="/companies-visited" className="text-blue-500 hover:text-blue-700">New</Link>
+          <div className="flex">
+          <Link to="/companies-visited" className="text-blue-500 text-[11px] underline hover:text-blue-700">visited companies</Link><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide text-blue-500 text-[11px] lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          </div>
         </div>
 
         <div className="total-offers bg-zinc-200 dark:bg-zinc-900 lg:rounded-[2rem] rounded-sm px-6 py-4 md:p-6 mb-8 md:mb-8 flex justify-between items-center">
