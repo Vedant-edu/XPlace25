@@ -90,6 +90,12 @@ export function PlacementDashboard() {
         </div>
 
         <div className="tab-filter flex flex-wrap items-center justify-between gap-2 mt-2 mb-2">
+          
+          <button
+            onClick={() => setActiveTab('all')}
+            className={`tab-button px-4 py-1.5 text-black dark:text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'all' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
+          >STES
+          </button> <div className='text-gray-400 '>|</div>
           <button
             onClick={() => setActiveTab('entc')}
             className={`tab-button px-4 py-1.5 text-black dark:text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'entc' ? 'bg-black dark:bg-emerald-900 text-white' : ''}`}
@@ -102,14 +108,9 @@ export function PlacementDashboard() {
           >
             SCOE
           </button>
-          <button
-            onClick={() => setActiveTab('all')}
-            className={`tab-button px-4 py-1.5 text-black dark:text-white rounded-full text-sm font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'all' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
-          >STES
-          </button>
           <div className="flex-1" />
           <div className="flex">
-          <Link to="/companies-visited" className="text-blue-500 text-[11px] underline hover:text-blue-700">visited companies</Link><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide text-blue-500 text-[11px] lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+          <Link to="/companies-visited" className="text-blue-500 text-[11px] underline hover:text-blue-700">all companies</Link><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide text-blue-500 text-[11px] lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
           </div>
         </div>
 

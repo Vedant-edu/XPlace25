@@ -8,7 +8,7 @@ export default function Pop() {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
-      <div className="relative w-80 h-80 bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="relative w-96 h-[550px] bg-white rounded-2xl shadow-lg overflow-hidden">
         {/* Advertise Strip */}
         <div className="w-full bg-gray-400 h-10 text-center text-sm font-semibold text-gray-700 py-2">
           Advertisement
@@ -19,14 +19,16 @@ export default function Pop() {
         >
           <X size={30} />
         </button>
-        <a href="https://example.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/share/BAOZrL7tT3" target="_blank" rel="noopener noreferrer">
           <img
-            src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=656,h=939,fit=crop/mP42rVZgB1cJavB0/insights-1-AwvDbXazxLfDe17j.png"
+            src="https://github.com/Vedant-edu/Images/blob/main/WhatsApp%20Image%202025-02-21%20at%208.02.56%20PM.jpeg?raw=true"
             alt="Ad Banner"
-            className="w-full h-2/3 object-cover"
+            className="w-full h-[450px] rounded-b-sm"
           />
           <div className="p-4 text-center text-gray-800 font-semibold">
-            Click to Checkout new magazine by TechSphere Insights!
+            Click to contact SK Circuit Crafters <br /><div className="text-[10px]">
+            Phone : 8010849335
+            </div>
           </div>
         </a>
       </div>
