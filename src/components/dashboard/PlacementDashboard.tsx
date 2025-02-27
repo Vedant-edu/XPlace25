@@ -13,7 +13,7 @@ import AnimatedCounter from '../ui/animatedcounter';
 // import Announcement from '../ui/announcement';
 
 export function PlacementDashboard() {
-  const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'all'>('entc');
+  const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'all'>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState<PlacementData[]>([]);
   const [sortBy, setSortBy] = useState<'recent' | 'package' | 'students'>('recent');
