@@ -82,14 +82,14 @@ export function PlacementDashboard() {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search companies...."
             className="w-full h-12 pr-4 rounded-full  lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500 bg-transparent dark:bg-transparent text-black dark:text-gray-300 "
-          /> <div className='text-gray-300 dark:text-slate-800 mr-2 text-[30px]'>|</div>
+          /> <div className='text-gray-300 dark:text-slate-800 mr-2 text-[30px] pl-2'>|</div>
           <ThemeToggle />
           <div className="">
             <SortDropdown value={sortBy} onChange={setSortBy} />
           </div>
         </div>
 
-        <div className="tab-filter flex flex-wrap items-center justify-between gap-2 mt-2 mb-2">
+        <div className="tab-filter flex flex-wrap items-center justify-between gap-2 mt-2 mb-2 ">
           
           <button
             onClick={() => setActiveTab('all')}

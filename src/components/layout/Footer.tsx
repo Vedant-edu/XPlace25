@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import SponsorLink from '../ui/SponsorLink';
+import Svglume from './svg';
 
 export function Footer() {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
@@ -7,9 +8,11 @@ export function Footer() {
   return (
     <footer className="border-t dark:bg-black border-white dark:border-gray-800 pt-8 ">
       <div className="container py-8">
-        <div className="flex flex-col items-center bg-stone-100 dark:bg-stone-900 p-4  rounded-tl-3xl rounded-tr-3xl">
-          <span className="text-sm text-gray-600 dark:text-gray-600 text-center mb-2 font-semibold">Our Sponsor</span>
-          <div className="flex items-center gap-4 mt-4">
+        <div className="flex flex-col items-center bg-stone-100 dark:bg-stone-900 p-4 rounded-tl-3xl rounded-tr-3xl">
+          <span className="text-sm text-gray-600 dark:text-gray-600 text-center mb-2 font-semibold">Our Sponsors</span>
+
+         <div className="lg:flex lg:gap-8 lg:py-0">
+         <div className="flex pb-5  items-center gap-4 mt-4">
             <img
               src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=346,h=385,fit=crop/AoPvPyDBKgiwjxD9/layer-0-ALpnDR277JIqJk1X.png"
               alt="TDL Techsphere"
@@ -19,10 +22,17 @@ export function Footer() {
               <a href="https://tdltechsphere.com/">TDL Techsphere</a>
             </span>
           </div>
+          <div className="flex items-center justify-center">
+            
+            
+              <a href="https://lumedesigns.in/"><Svglume/></a>
+            
+          </div>
+         </div>
         </div>
-          <SponsorLink/>
+        <SponsorLink/>
 
-        <div className=" mt-4">
+        <div className="mt-4">
           <div className="flex items-center gap-2">
             <span className="font-semibold text-black dark:text-gray-300"><span className='text-orange-500'>X</span>Place <sup className='text-[10px]'>'25</sup></span>
           </div>
@@ -50,7 +60,6 @@ export function Footer() {
 
         </div>
       </div>
- 
     </footer>
   );
 }

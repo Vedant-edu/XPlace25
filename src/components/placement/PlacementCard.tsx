@@ -21,7 +21,7 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
         <div className=" ">
           <h3 className="text-xl lg:text-2xl font-bold text-black dark:text-gray-200">{data.company_name}</h3>
           <p className="text-gray-600 flex dark:text-gray-400 lg:text-lg text-sm">
-           <div className='w-16 flex'> {data.package} LPA </div>
+           <div className='lg:w-28 mr-2 flex'> {data.package} LPA </div>
             {activeTab === 'all' && (
               <>
                 <span className='px-2 bg-green-100 dark:bg-emerald-900 text-sm rounded-lg'> ENTC: {data.entc_students} </span>
