@@ -30,7 +30,7 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex h-10 items-center gap-2 rounded-md ${isOpen ? ' dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-900'} px-3  dark:text-gray-400`}
+        className={`flex p-[10px] items-center gap-2 rounded-md ${isOpen ? ' dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-900'}   dark:text-gray-400`}
       >
         <ArrowUpDown className="h-4 w-4" />
       
