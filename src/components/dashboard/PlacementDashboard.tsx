@@ -64,19 +64,19 @@ export function PlacementDashboard() {
       {/* <Announcement /> */}
       <main className="container mt-2 flex-1 ">
 
-        <h1 className="lg:text-2xl lg:block hidden text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
-          <span className="text-orange-500">X</span>Place'25
+        <h1 className="lg:text-2xl  text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
+          <span className="text-orange-500">X</span>Place
         </h1>
-        <div className="lg:pl-6 search-container  relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1">
-          <div className='pl-4 pr-2 text-[16px] dark:bg-zinc-900 flex rounded-full  items-center w-full lg:hidden text-semibold'>
-            <span className='text-orange-500 dark font-extrabold '>X</span>
-            <span className='dark:text-white'>Place</span>
+        <div className="lg:pl-6 search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1">
+          <div className=' pr-2 text-[16px] bg-gray-100 dark:bg-zinc-900 flex rounded-full  items-center w-full  text-semibold'>
+            {/* <span className='text-orange-500 dark font-extrabold '>X</span>
+            <span className='dark:text-white'>Place</span> */}
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="search......"
-            className=" h-9 pr-4   lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500  pl-3 text-black dark:text-gray-300 bg-transparent"
+            placeholder="Search companies ...."
+            className=" h-9 pr-4 w-full  lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500  pl-3 text-black dark:text-gray-300 bg-transparent"
             />
             </div>
          
@@ -92,7 +92,7 @@ export function PlacementDashboard() {
             onClick={() => setActiveTab('all')}
             className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'all' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
           >STES
-          </button> <div className='text-gray-400 '>|</div>
+          </button> <div className='text-gray-700 '>|</div>
           <button
             onClick={() => setActiveTab('entc')}
             className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'entc' ? 'bg-black dark:bg-emerald-900 text-white' : ''}`}

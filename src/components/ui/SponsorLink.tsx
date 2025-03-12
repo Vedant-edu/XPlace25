@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 const SponsorLink = () => {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -12,7 +11,7 @@ const SponsorLink = () => {
   if (!isVisible) return null;
 
   return (
-   <div className="text-center p-1 bg-gray-400 dark:bg-stone-800 flex justify-between items-center gap-4">
+   <div className=" pl-3 bg-gray-400 dark:bg-slate-900 flex justify-between items-center gap-4">
   <p className="text-sm font text-white dark:text-gray-300 flex-1">
     Would you like to sponsor?{' '}
     <a href={mailtoLink} className="text-blue-200 underline">Click here</a>

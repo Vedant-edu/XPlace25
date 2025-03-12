@@ -595,27 +595,30 @@ const CompaniesVisited: React.FC = () => {
         }
       ];
     return (<><SplashCursor/>
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <h1 className="lg:text-2xl text-3xl font-extrabold py-2 ml-1 text-black dark:text-gray-300">
-          <span className="text-orange-500">X</span>Place <sup>'25</sup>
-          <div className="text-sm mt-4">
+        <h1 className="lg:text-2xl text-3xl font-extrabold py-1  text-black dark:text-gray-300 ">
+          <div className='fixed top-0 z-20 pt-2 backdrop-blur-sm bg-gradient-to-br from-slate-400/40 to-gray-800/40  px-4 py-2  w-full'>
+          <span className="text-orange-500 ">X</span>Place <sup>'25</sup>
+          </div>
+          <div className="text-sm mt-14  px-4">
             List of all companies that visited on-campus
           </div>
         </h1>
+          <div className='p-4 '>
           {companiesData.map((company, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-xl backdrop-blur-md bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-700/30 group"
+              className="relative overflow-hidden rounded-xl backdrop-blur-md bg-gradient-to-br from-gray-800/40 to-gray-900/40 p-3 shadow-xl hover:shadow-2xl transition-all mb-2 duration-300 border border-gray-700/30  "
             >
               {/* Gradient blur effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               
-              <h2 className="relative text-2xl font-semibold text-white mb-4 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent">
-                {company.company}
+              <h2 className="relative text-2xl font-semibold text-white mb-4 bg-gradient-to-r from-blue-200 to-purple-200 bg-clip-text text-transparent border-b border-slate-700">
+                {company.company} 
               </h2>
               
-              <div className="relative space-y-3">
+              <div className="relative space-y-3 ">
               <div className="flex items-start">
                   <span className="text-sm font-medium text-gray-400 w-32">CTC:</span>
                   <span className="text-sm text-gray-300">{company.ctc}</span>
@@ -638,6 +641,7 @@ const CompaniesVisited: React.FC = () => {
               </div>
             </div>
           ))}
+          </div>
         </div>
       </div>
       <Footer/>
