@@ -50,7 +50,11 @@ export function Footer() {
                   It is important to note that the information available on this platform is primarily sourced from open channels such as LinkedIn and other publicly accessible resources. We are not affiliated with any organization, and the data presented here is not endorsed or verified by any corporate entity. Users should exercise their own judgment and discretion when interpreting the information provided.
                   <br />
                   Under no circumstance shall we have any liability to you for any loss or damage of any kind incurred as a result of the use of the platform or reliance on any information provided on the platform. Your use of the platform and your reliance on any information on the platform is solely at your own risk. We encourage users to cross-verify the information with official sources and remain informed about any updates or changes that may occur.
+                  <br />
 
+                  <p className="italic mt-4 text-slate-400">
+                    * The placement percentage is calculated based on the available data of intake seats. The evaluation is done using the formula: percentage = (number of students placed / total intake seats) * 100. This calculation is not based on the eligible students for placement.
+                  </p>
 
                 </p>
                 <button onClick={() => setShowDisclaimer(false)} className="mt-4 text-blue-500 underline dark:text-blue-700">Close</button>

@@ -1,4 +1,4 @@
-import { ArrowUpDown } from 'lucide-react';
+import { ArrowUpDown, SlidersHorizontal } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 
 interface SortDropdownProps {
@@ -30,9 +30,9 @@ export function SortDropdown({ value, onChange }: SortDropdownProps) {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex p-[10px] items-center gap-2 rounded-md ${isOpen ? ' dark:bg-zinc-900' : 'bg-zinc-100 dark:bg-zinc-900'}   dark:text-gray-400`}
+        className={`flex p-[6px] items-center gap-2 rounded-md ${isOpen ? ' dark:bg-zinc-900' : 'bg-zinc-200 dark:bg-zinc-800'}   dark:text-gray-400`}
       >
-        <ArrowUpDown className="h-4 w-4" />
+        <SlidersHorizontal className="h-4 w-4" />
       
       </button>
       

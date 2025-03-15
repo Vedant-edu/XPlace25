@@ -58,15 +58,36 @@ export function PlacementDashboard() {
     return acc + curr.total_students;
   }, 0);
 
+  // Calculate placement percentage based on activeTab
+  let totalPlaced = 0;
+  let totalCapacity = 0;
+  switch (activeTab) {
+    case 'entc':
+      totalPlaced = data.reduce((acc, curr) => acc + curr.entc_students, 0);
+      totalCapacity = 240;
+      break;
+    case 'scoe':
+      totalPlaced = data.reduce((acc, curr) => acc + curr.scoe_students, 0);
+      totalCapacity = 1140;
+      break;
+    case 'all':
+      totalPlaced = data.reduce((acc, curr) => acc + curr.total_students, 0);
+      totalCapacity = 5000; // Assuming STES capacity is 5000 for simplicity
+      break;
+  }
+
+  const placementPercentage = totalCapacity ? (totalPlaced / totalCapacity) * 100 : 0;
+
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950">
       <Pop />
       {/* <Announcement /> */}
       <main className="container mt-2 flex-1 ">
 
-        <h1 className="lg:text-2xl  text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
+<div className='flex justify-between'><h1 className="lg:text-2xl  text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
           <span className="text-orange-500">X</span>Place
-        </h1>
+        </h1> <ThemeToggle/></div>
+        
         <div className="lg:pl-6 search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1">
           <div className=' pr-2 text-[16px] bg-gray-100 dark:bg-zinc-900 flex rounded-full  items-center w-full  text-semibold'>
             {/* <span className='text-orange-500 dark font-extrabold '>X</span>
@@ -76,14 +97,15 @@ export function PlacementDashboard() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search companies ...."
-            className=" h-9 pr-4 w-full  lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500  pl-3 text-black dark:text-gray-300 bg-transparent"
+            className=" h-10 pr-4 w-full  lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500  pl-3 text-black dark:text-gray-300 bg-transparent"
             />
-            </div>
-         
-          <ThemeToggle />
-          <div className="">
+            <div className="">
             <SortDropdown value={sortBy} onChange={setSortBy} />
           </div>
+            </div>
+         
+          
+          
         </div>
 
         <div className="tab-filter flex flex-wrap items-center justify-between gap-1 mt-3 mb-3 ">
@@ -113,7 +135,10 @@ export function PlacementDashboard() {
 
         <div className="total-offers bg-zinc-200 dark:bg-zinc-900 lg:rounded-[2rem] rounded-[24px] px-4 py-2 md:p-6 mb-4 md:mb-8 flex justify-between items-center">
           <div className="flex justify-between items-center w-full">
-            <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total Offers</h3>
+            <div>
+            <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Offers</h3>
+            <p className='text-[12px] text-slate-600 italic'>Percentage of placed* : {placementPercentage.toFixed(2)}%</p>
+            </div>
 
             <span className="text-xl font-bold bg-blue-100 dark:bg-slate-800 dark:text-gray-300 border-2 border-blue-500 w-12 h-12 p-3 rounded-full flex items-center justify-center"><AnimatedCounter value={totalOffers} duration={activeTab === 'entc' ? 5000 : 2000} /></span>
           </div>

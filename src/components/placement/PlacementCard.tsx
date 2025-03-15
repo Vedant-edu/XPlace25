@@ -1,5 +1,4 @@
 import { PlacementData } from '@/types';
-import AnimatedCounter from '../ui/animatedcounter';
 
 interface PlacementCardProps {
   data: PlacementData;
@@ -16,7 +15,8 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
   if (activeTab === 'scoe' && data.scoe_students === 0) return null;
 
   return (
-    <div className="mx-4 py-2 border-b dark:border-slate-800 border-slate-200 relative">
+   <>
+    <div className=" ml-2 mr-4 py-2 dark:border-slate-800  relative">
       <div className="flex justify-between items-center ">
         <div className=" ">
           <h3 className="text-lg lg:text-xl font-bold text-black dark:text-gray-200">{data.company_name}</h3>
@@ -42,5 +42,7 @@ export function PlacementCard({ data, activeTab }: PlacementCardProps) {
         </div>
       </div>
     </div>
+     <div className='border-b border-slate-200 dark:border-slate-800'/>
+     </>
   );
 }

@@ -9,7 +9,7 @@ export function ThemeToggle() {
    <div className="flex items-center">
      <Button
       variant="ghost"
-      className="bg-zinc-100 dark:bg-zinc-900"
+      className=""
       size="icon"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
