@@ -1,13 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Announcement() {
   const [visible, setVisible] = useState(true);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 1) {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   if (!visible) return null;
 
   return (
-    <div>
-      <div className="text-center  bg-gray-400 dark:bg-yellow-950/50 flex justify-between items-center gap-4">
+    <div className="transition-all duration-500 ease-in-out" style={{ transform: visible ? 'translateY(0)' : 'translateY(-100%)' }}>
+      <div className="text-center py-3  bg-gray-400 dark:bg-emerald-900/50 flex justify-between items-center gap-4">
+      
         <p className="text-[12px] font text-white dark:text-gray-300 flex-1">
           Checkout Magazine by TDL Techsphere.{' '}
           <a href="https://techsphereinsights.in/" className="text-blue-200 underline">view here</a>

@@ -10,10 +10,11 @@ import ThemeToggle from '../ui/theme-toggle';
 // import Announcement from '../ui/announcement';
 import Pop from '../ui/Pop';
 import AnimatedCounter from '../ui/animatedcounter';
+import Announcement from '../ui/announcement';
 // import Announcement from '../ui/announcement';
 
 export function PlacementDashboard() {
-  const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'all'>('all');
+  const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'stes'>('stes');
   const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState<PlacementData[]>([]);
   const [sortBy, setSortBy] = useState<'recent' | 'package' | 'students'>('recent');
@@ -70,7 +71,7 @@ export function PlacementDashboard() {
       totalPlaced = data.reduce((acc, curr) => acc + curr.scoe_students, 0);
       totalCapacity = 1140;
       break;
-    case 'all':
+    case 'stes':
       totalPlaced = data.reduce((acc, curr) => acc + curr.total_students, 0);
       totalCapacity = 5000; // Assuming STES capacity is 5000 for simplicity
       break;
@@ -111,8 +112,8 @@ export function PlacementDashboard() {
         <div className="tab-filter flex flex-wrap items-center justify-between gap-1 mt-3 mb-3 ">
 
           <button
-            onClick={() => setActiveTab('all')}
-            className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'all' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
+            onClick={() => setActiveTab('stes')}
+            className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'stes' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
           >STES
           </button> <div className='text-gray-700 '>|</div>
           <button
@@ -129,7 +130,7 @@ export function PlacementDashboard() {
           </button>
           <div className="flex-1" />
           <div className="flex">
-            <Link to="/companies-visited" className="text-blue-500 text-[10px] underline hover:text-blue-700">all companies</Link><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide text-blue-500 text-[10px] lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+            <Link to="/companies-visited" className="text-blue-500 text-[10px] underline hover:text-blue-700">stes companies</Link><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide text-blue-500 text-[10px] lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
           </div>
         </div>
 
