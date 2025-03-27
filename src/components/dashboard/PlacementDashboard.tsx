@@ -1,23 +1,21 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
 import { supabase } from '@/lib/supabase';
 import { PlacementData } from '@/types';
 import { PlacementCard } from '../placement/PlacementCard';
-import { SortDropdown } from '../filters/SortDropdown';
 import { Footer } from '../layout/Footer';
-import ThemeToggle from '../ui/theme-toggle';
 // import Announcement from '../ui/announcement';
 import Pop from '../ui/Pop';
 import AnimatedCounter from '../ui/animatedcounter';
-import Announcement from '../ui/announcement';
-// import Announcement from '../ui/announcement';
+import HeaderAndSearch from './HeaderAndSearch';
+
 
 export function PlacementDashboard() {
   const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'stes'>('stes');
   const [searchTerm, setSearchTerm] = useState('');
   const [data, setData] = useState<PlacementData[]>([]);
   const [sortBy, setSortBy] = useState<'recent' | 'package' | 'students'>('recent');
+  const location = useLocation();
 
   useEffect(() => {
     fetchData();
@@ -84,33 +82,13 @@ export function PlacementDashboard() {
       <Pop />
       {/* <Announcement /> */}
       <main className="container mt-2 flex-1 ">
-
-<div className='flex justify-between'><h1 className="lg:text-2xl  text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
-          <span className="text-orange-500">X</span>Place
-        </h1> <ThemeToggle/></div>
-        
-        <div className="lg:pl-6 search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1">
-          <div className=' pr-2 text-[16px] bg-gray-100 dark:bg-zinc-900 flex rounded-full  items-center w-full  text-semibold'>
-            {/* <span className='text-orange-500 dark font-extrabold '>X</span>
-            <span className='dark:text-white'>Place</span> */}
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search companies ...."
-            className=" h-10 pr-4 w-full  lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500  pl-3 text-black dark:text-gray-300 bg-transparent"
-            />
-            <div className="">
-            <SortDropdown value={sortBy} onChange={setSortBy} />
-          </div>
-            </div>
-         
-          
-          
-        </div>
-
+        <HeaderAndSearch
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+        />
         <div className="tab-filter flex flex-wrap items-center justify-between gap-1 mt-3 mb-3 ">
-
           <button
             onClick={() => setActiveTab('stes')}
             className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'stes' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
@@ -137,8 +115,8 @@ export function PlacementDashboard() {
         <div className="total-offers bg-zinc-200 dark:bg-zinc-900 lg:rounded-[2rem] rounded-[24px] px-4 py-2 md:p-6 mb-4 md:mb-8 flex justify-between items-center">
           <div className="flex justify-between items-center w-full">
             <div>
-            <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Offers</h3>
-            <p className='text-[12px] text-slate-600 italic'>Percentage of placed* : {placementPercentage.toFixed(2)}%</p>
+              <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Offers</h3>
+              <p className='text-[12px] text-slate-600 italic'>Percentage of placed* : {placementPercentage.toFixed(2)}%</p>
             </div>
 
             <span className="text-xl font-bold bg-blue-100 dark:bg-slate-800 dark:text-gray-300 border-2 border-blue-500 w-12 h-12 p-3 rounded-full flex items-center justify-center"><AnimatedCounter value={totalOffers} duration={activeTab === 'entc' ? 5000 : 2000} /></span>
@@ -150,7 +128,7 @@ export function PlacementDashboard() {
             <PlacementCard
               key={item.id}
               data={item}
-              activeTab={activeTab}
+              activeTab={activeTab === 'stes' ? 'all' : activeTab}
             />
           ))}
         </div>
