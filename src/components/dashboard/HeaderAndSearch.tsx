@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import ThemeToggle from '../ui/theme-toggle';
 import { SortDropdown } from '../filters/SortDropdown';
 
@@ -8,18 +9,25 @@ const HeaderAndSearch: React.FC<{
   sortBy: 'recent' | 'package' | 'students';
   setSortBy: (value: 'recent' | 'package' | 'students') => void;
 }> = ({ searchTerm, setSearchTerm, sortBy, setSortBy }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [selectedYear, setSelectedYear] = useState('2025');
 
   useEffect(() => {
-    const currentPath = window.location.pathname;
-    if (currentPath.includes('2024')) {
+    if (location.pathname.includes('2024')) {
       setSelectedYear('2024');
-    } else if (currentPath.includes('2026')) {
+    } else if (location.pathname.includes('2026')) {
       setSelectedYear('2026');
     } else {
       setSelectedYear('2025');
     }
-  }, []);
+  }, [location.pathname]);
+
+  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const year = e.target.value;
+    setSelectedYear(year);
+    navigate(`/${year}`); // Use react-router navigation instead of window.location
+  };
 
   return (
     <>
@@ -32,17 +40,7 @@ const HeaderAndSearch: React.FC<{
             <select
               className='bg-slate-100 dark:text-gray-500 dark:bg-zinc-900 w-20 mr-3 rounded-[12px] text-center appearance-none'
               value={selectedYear}
-              onChange={(e) => {
-                const year = e.target.value;
-                setSelectedYear(year);
-                if (year === "2024") {
-                  window.location.href = "/2024";
-                } else if (year === "2026") {
-                  window.location.href = "/2026";
-                } else {
-                  window.location.href = "/";
-                }
-              }}
+              onChange={handleYearChange}
             >
               <option value="2024">2024</option>
               <option value="2025">2025</option>
