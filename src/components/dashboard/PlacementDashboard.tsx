@@ -4,11 +4,9 @@ import { supabase } from '@/lib/supabase';
 import { PlacementData } from '@/types';
 import { PlacementCard } from '../placement/PlacementCard';
 import { Footer } from '../layout/Footer';
-// import Announcement from '../ui/announcement';
 import Pop from '../ui/Pop';
 import AnimatedCounter from '../ui/animatedcounter';
 import HeaderAndSearch from './HeaderAndSearch';
-
 
 export function PlacementDashboard() {
   const [activeTab, setActiveTab] = useState<'entc' | 'scoe' | 'stes'>('stes');
@@ -50,14 +48,14 @@ export function PlacementDashboard() {
       }
     });
 
-  // Calculate total offers without considering search term
+  // Calculate totals
   const totalOffers = data.reduce((acc, curr) => {
     if (activeTab === 'entc') return acc + curr.entc_students;
     if (activeTab === 'scoe') return acc + curr.scoe_students;
     return acc + curr.total_students;
   }, 0);
 
-  // Calculate placement percentage based on activeTab
+  // Calculate placement percentage
   let totalPlaced = 0;
   let totalCapacity = 0;
   switch (activeTab) {
@@ -71,66 +69,119 @@ export function PlacementDashboard() {
       break;
     case 'stes':
       totalPlaced = data.reduce((acc, curr) => acc + curr.total_students, 0);
-      totalCapacity = 5000; // Assuming STES capacity is 5000 for simplicity
+      totalCapacity = 5000;
       break;
   }
 
   const placementPercentage = totalCapacity ? (totalPlaced / totalCapacity) * 100 : 0;
 
+  // Tab configuration with gradient backgrounds
+  const tabs = [
+    { 
+      id: 'stes', 
+      label: 'STES', 
+      gradient: 'from-purple-500 to-purple-600',
+      activeGradient: 'from-purple-600 to-purple-700'
+    },
+    { 
+      id: 'entc', 
+      label: 'ENTC', 
+      sublabel: 'SCOE',
+      gradient: 'from-green-500 to-green-600',
+      activeGradient: 'from-green-600 to-green-700'
+    },
+    { 
+      id: 'scoe', 
+      label: 'SCOE',
+      gradient: 'from-blue-500 to-blue-600',
+      activeGradient: 'from-blue-600 to-blue-700'
+    }
+  ];
+
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 pt-2">
       <Pop />
-      {/* <Announcement /> */}
-      <main className="container mt-2 flex-1 ">
+      <main className="container mx-auto px-4 flex-1">
         <HeaderAndSearch
           searchTerm={searchTerm}
           setSearchTerm={setSearchTerm}
           sortBy={sortBy}
           setSortBy={setSortBy}
         />
-        <div className="tab-filter flex flex-wrap items-center justify-between gap-1 mt-3 mb-3 ">
-          <button
-            onClick={() => setActiveTab('stes')}
-            className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'stes' ? 'bg-black dark:bg-purple-900 text-white' : ''}`}
-          >STES
-          </button> <div className='text-gray-700 '>|</div>
-          <button
-            onClick={() => setActiveTab('entc')}
-            className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'entc' ? 'bg-black dark:bg-emerald-900 text-white' : ''}`}
-          >
-            ENTC <sup className='text-[6px]'>SCOE</sup>
-          </button>
-          <button
-            onClick={() => setActiveTab('scoe')}
-            className={`tab-button px-3 py-1 text-black dark:text-white rounded-full text-xs font-medium transition-colors border border-gray-300 dark:border-zinc-700 ${activeTab === 'scoe' ? 'bg-black dark:bg-blue-800 text-white' : ''}`}
-          >
-            SCOE
-          </button>
-          <div className="flex-1" />
-          <div className="flex">
-            <Link to="/companies-visited" className="text-blue-500 text-[10px] underline hover:text-blue-700">stes companies</Link><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide text-blue-500 text-[10px] lucide-arrow-up-right"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
-          </div>
-        </div>
 
-        <div className="total-offers bg-zinc-200 dark:bg-zinc-900 lg:rounded-[2rem] rounded-[24px] px-4 py-2 md:p-6 mb-4 md:mb-8 flex justify-between items-center">
-          <div className="flex justify-between items-center w-full">
-            <div>
-              <h3 className="lg:text-2xl text-lg font-bold text-black dark:text-gray-300">Total {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Offers</h3>
-              <p className='text-[12px] text-slate-600 italic'>Percentage of placed* : {placementPercentage.toFixed(2)}%</p>
+{/* Enhanced Tab Navigation */}
+<div className="flex flex-wrap items-center justify-between gap-2 my-4">
+  <div className="flex items-center space-x-2">
+    {tabs.map((tab) => (
+      <button
+      key={tab.id}
+      onClick={() => setActiveTab(tab.id as any)}
+      className={`px-3 py-1 rounded-lg text-xs font-medium ${
+        activeTab === tab.id
+          ? `${
+              tab.id === 'stes' ? 'bg-purple-600' : 
+              tab.id === 'entc' ? 'bg-green-600' : 
+              'bg-blue-600'
+            } text-white`
+          : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
+      }`}
+    >
+      {tab.label}
+      {tab.sublabel && <sup className="ml-0.5 text-[0.6rem]">{tab.sublabel}</sup>}
+    </button>
+    ))}
+  </div>
+  
+  <Link 
+    to="/companies-visited" 
+    className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline"
+  >
+    STES Companies
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
+      <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+    </svg>
+  </Link>
+</div>
+        {/* Simplified Stats Dashboard */}
+        <div className="bg-gray-100 dark:bg-gray-900 rounded-2xl px-4 py-4 border border-gray-200 dark:border-gray-700 mb-4">
+          <div className="flex  justify-between items-center">
+            <div className="text-left md:text-left md:mb-0">
+              <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+                Total {activeTab.toUpperCase()} Offers
+              </h2>
+              <p className="text-sm text-gray-600 dark:text-gray-500">Percentage of placed 
+                 : {placementPercentage.toFixed(2)}% 
+              </p>
             </div>
-
-            <span className="text-xl font-bold bg-blue-100 dark:bg-slate-800 dark:text-gray-300 border-2 border-blue-500 w-12 h-12 p-3 rounded-full flex items-center justify-center"><AnimatedCounter value={totalOffers} duration={activeTab === 'entc' ? 5000 : 2000} /></span>
+            {/* <p className='text-gray-300 dark:text-gray-700 text-4xl'>|</p> */}
+            <div className="flex items-center">
+              <div className="h-12 border-r border-gray-300 dark:border-gray-600 mx-6 "></div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-gray-800 dark:text-white">
+                  {totalPlaced}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="space-y-1">
-          {sortedAndFilteredData.map((item) => (
-            <PlacementCard
-              key={item.id}
-              data={item}
-              activeTab={activeTab === 'stes' ? 'all' : activeTab}
-            />
-          ))}
+        {/* Placement Cards Grid */}
+        <div className="grid gap-1">
+          {sortedAndFilteredData.length > 0 ? (
+            sortedAndFilteredData.map((item) => (
+              <PlacementCard
+                key={item.id}
+                data={item}
+                activeTab={activeTab === 'stes' ? 'all' : activeTab}
+              />
+            ))
+          ) : (
+            <div className=" rounded-xl p-8 text-center ">
+              
+              <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-white">No data found</h3>
+              <p className="mt-1 text-gray-500 dark:text-gray-400">Try adjusting your search or filter criteria</p>
+            </div>
+          )}
         </div>
       </main>
       <Footer />

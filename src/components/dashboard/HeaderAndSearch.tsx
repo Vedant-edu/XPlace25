@@ -26,19 +26,27 @@ const HeaderAndSearch: React.FC<{
   const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const year = e.target.value;
     setSelectedYear(year);
-    navigate(`/${year}`); // Use react-router navigation instead of window.location
+    if (year === '2025') {
+      navigate('/'); // Route to / for 2025
+    } else {
+      navigate(`/${year}`); // Use react-router navigation for other years
+    }
   };
 
   return (
-    <>
-      <div className='flex justify-between mb-1 px-1'>
-        <h1 className="lg:text-2xl text-md font-extrabold py-2 ml-1 text-black dark:text-gray-300">
-          <span className="text-orange-500">X</span>Place
-        </h1>
-        <div className='flex justify-center items-center'>
+    <div className="w-full">
+      <div className='flex justify-between items-center mb-2 px-1'>
+        <div className="flex items-center">
+          <h1 className="text-lg font-extrabold text-gray-800 dark:text-white">
+            <span className="text-orange-500">X</span>Place
+          </h1>
+          
+        </div>
+        
+        <div className='flex items-center space-x-3'>
           <div className='relative'>
             <select
-              className='bg-slate-100 dark:text-gray-500 dark:bg-zinc-900 w-20 mr-3 rounded-[12px] text-center appearance-none'
+              className='bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 pr-8 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent appearance-none'
               value={selectedYear}
               onChange={handleYearChange}
             >
@@ -47,13 +55,13 @@ const HeaderAndSearch: React.FC<{
               <option value="2026">2026</option>
             </select>
             <svg
-              className='absolute right-2 mr-2 top-1/2 transform -translate-y-1/2 pointer-events-none'
+              className='absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-500 dark:text-gray-400'
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="gray"
+              stroke="currentColor"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -61,24 +69,25 @@ const HeaderAndSearch: React.FC<{
               <path d="M6 9l6 6 6-6" />
             </svg>
           </div>
-          <div><ThemeToggle /></div>
+          <ThemeToggle />
         </div>
       </div>
-      <div className="lg:pl-6 search-container relative flex items-center w-full max-w-3xl mx-auto mt-0 md:mt-8 gap-1">
-        <div className='pr-2 text-[16px] bg-gray-100 dark:bg-zinc-900 flex rounded-full items-center w-full text-semibold'>
+
+      <div className="relative w-full max-w-3xl mx-auto">
+        <div className='relative flex items-center rounded-3xl shadow-sm border border-gray-300 dark:border-gray-700  transition-all duration-200'>
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search companies ...."
-            className="h-10 pr-4 w-full lg:text-lg text-sm font-medium outline-none shadow-none placeholder-gray-500 pl-3 text-black dark:text-gray-300 bg-transparent"
+            placeholder="Search companies..."
+            className="h-12 w-full px-4 text-gray-800 dark:text-gray-200 bg-transparent outline-none placeholder-gray-500 dark:placeholder-gray-400 text-sm md:text-base"
           />
-          <div className="">
+          <div className="absolute right-2">
             <SortDropdown value={sortBy} onChange={setSortBy} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
