@@ -100,7 +100,7 @@ export function PlacementDashboard() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-zinc-950 pt-2">
-      <Pop />
+{/*       <Pop /> */}
       <main className="container mx-auto px-4 flex-1">
         <HeaderAndSearch
           searchTerm={searchTerm}
