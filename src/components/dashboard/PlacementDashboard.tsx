@@ -77,21 +77,21 @@ export function PlacementDashboard() {
 
   // Tab configuration with gradient backgrounds
   const tabs = [
-    { 
-      id: 'stes', 
-      label: 'STES', 
+    {
+      id: 'stes',
+      label: 'STES',
       gradient: 'from-purple-500 to-purple-600',
       activeGradient: 'from-purple-600 to-purple-700'
     },
-    { 
-      id: 'entc', 
-      label: 'ENTC', 
+    {
+      id: 'entc',
+      label: 'ENTC',
       sublabel: 'SCOE',
       gradient: 'from-green-500 to-green-600',
       activeGradient: 'from-green-600 to-green-700'
     },
-    { 
-      id: 'scoe', 
+    {
+      id: 'scoe',
       label: 'SCOE',
       gradient: 'from-blue-500 to-blue-600',
       activeGradient: 'from-blue-600 to-blue-700'
@@ -109,39 +109,70 @@ export function PlacementDashboard() {
           setSortBy={setSortBy}
         />
 
-{/* Enhanced Tab Navigation */}
-<div className="flex flex-wrap items-center justify-between gap-2 my-4">
-  <div className="flex items-center space-x-2">
-    {tabs.map((tab) => (
-      <button
-      key={tab.id}
-      onClick={() => setActiveTab(tab.id as any)}
-      className={`px-3 py-1 rounded-lg text-xs font-medium ${
-        activeTab === tab.id
-          ? `${
-              tab.id === 'stes' ? 'bg-purple-600' : 
-              tab.id === 'entc' ? 'bg-green-600' : 
-              'bg-blue-600'
-            } text-white`
-          : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
-      }`}
-    >
-      {tab.label}
-      {tab.sublabel && <sup className="ml-0.5 text-[0.6rem]">{tab.sublabel}</sup>}
-    </button>
-    ))}
-  </div>
-  
-  <Link 
-    to="/companies-visited" 
-    className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline"
-  >
-    STES Companies
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1">
-      <path d="M7 7h10v10" /><path d="M7 17 17 7" />
-    </svg>
-  </Link>
-</div>
+        {/* Enhanced Tab Navigation */}
+        <div className="flex flex-wrap items-center justify-between gap-2 my-4">
+          <div className="flex items-center space-x-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`px-3 py-1 rounded-lg text-xs font-medium ${activeTab === tab.id
+                    ? `${tab.id === 'stes' ? 'bg-purple-600' :
+                      tab.id === 'entc' ? 'bg-green-600' :
+                        'bg-blue-600'
+                    } text-white`
+                    : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200'
+                  }`}
+              >
+                {tab.label}
+                {tab.sublabel && <sup className="ml-0.5 text-[0.6rem]">{tab.sublabel}</sup>}
+              </button>
+            ))}
+          </div>
+
+          <Link
+            to="/companies-visited"
+            className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded sm:bg-transparent sm:dark:bg-transparent sm:px-0 sm:py-0"
+          >
+            STES Companies
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="ml-1"
+            >
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </Link>
+          <Link
+            to="/placed-students-feedback"
+            className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded sm:bg-transparent sm:dark:bg-transparent sm:px-0 sm:py-0"
+          >
+            Students Feedback
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="ml-1"
+            >
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </Link>
+        </div>
         {/* Simplified Stats Dashboard */}
         <div className="bg-gray-100 dark:bg-gray-900 rounded-2xl px-4 py-4 border border-gray-200 dark:border-gray-700 mb-4">
           <div className="flex  justify-between items-center">
@@ -149,8 +180,8 @@ export function PlacementDashboard() {
               <h2 className="text-xl font-bold text-gray-800 dark:text-white">
                 Total {activeTab.toUpperCase()} Offers
               </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-500">Percentage of placed 
-                 : {placementPercentage.toFixed(2)}% 
+              <p className="text-sm text-gray-600 dark:text-gray-500">Percentage of placed
+                : {placementPercentage.toFixed(2)}%
               </p>
             </div>
             {/* <p className='text-gray-300 dark:text-gray-700 text-4xl'>|</p> */}
@@ -177,7 +208,7 @@ export function PlacementDashboard() {
             ))
           ) : (
             <div className=" rounded-xl p-8 text-center ">
-              
+
               <h3 className="mt-4 text-lg font-medium text-gray-900 dark:text-white">No data found</h3>
               <p className="mt-1 text-gray-500 dark:text-gray-400">Try adjusting your search or filter criteria</p>
             </div>

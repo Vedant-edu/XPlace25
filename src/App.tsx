@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { PlacementDashboard } from './components/dashboard/PlacementDashboard';
 import { ThemeProvider } from './components/ui/theme-provider';
 import CompaniesVisited from './components/ui/CompaniesVisited';
+import PlacedStudentsFeedback from './components/ui/PlacedStudentsFeedback';
 import TwoFour from './components/dashboard/TwoFour';
 import TwoSix from './components/dashboard/TwoSix';
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PlacementDashboard />} />
         <Route path="/companies-visited" element={<CompaniesVisited />} />
+        <Route path="/placed-students-feedback" element={<PlacedStudentsFeedback />} />
         <Route path="/2024" element={<TwoFour />} />
         <Route path="/2026" element={<TwoSix />} />
 
