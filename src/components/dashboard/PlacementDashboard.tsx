@@ -110,7 +110,7 @@ export function PlacementDashboard() {
         />
 
         {/* Enhanced Tab Navigation */}
-        <div className="flex flex-wrap items-center justify-between gap-2 my-4">
+        <div className="flex flex-col gap-2 my-4">
           <div className="flex items-center space-x-2">
             {tabs.map((tab) => (
               <button
@@ -130,63 +130,65 @@ export function PlacementDashboard() {
             ))}
           </div>
 
-          <Link
-            to="/companies-visited"
-            className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded sm:bg-transparent sm:dark:bg-transparent sm:px-0 sm:py-0"
-          >
-            STES Companies
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="ml-1"
+          <div className="flex items-center space-x-3">
+            <Link
+              to="/companies-visited"
+              className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded sm:bg-transparent sm:dark:bg-transparent sm:px-0 sm:py-0"
             >
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
-          </Link>
-          <Link
-            to="/placed-students-feedback"
-            className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded sm:bg-transparent sm:dark:bg-transparent sm:px-0 sm:py-0"
-          >
-            Students Feedback
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="ml-1"
+              STES visited Companies
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="ml-1"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </Link>
+            <Link
+              to="/placed-students-feedback"
+              className="flex items-center text-xs text-blue-600 dark:text-blue-400 hover:underline px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded sm:bg-transparent sm:dark:bg-transparent sm:px-0 sm:py-0"
             >
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
-            </svg>
-          </Link>
+              Students Feedback
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="ml-1"
+              >
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </Link>
+          </div>
         </div>
         {/* Simplified Stats Dashboard */}
-        <div className="bg-gray-100 dark:bg-gray-900 rounded-2xl px-4 py-4 border border-gray-200 dark:border-gray-700 mb-4">
+        <div className="bg-gray-100 dark:bg-gray-900 rounded-2xl px-4 py-1 lg:py-3 border border-gray-200 dark:border-gray-700 mb-4">
           <div className="flex  justify-between items-center">
             <div className="text-left md:text-left md:mb-0">
-              <h2 className="text-xl font-bold text-gray-800 dark:text-white">
+              <h2 className="text-lg  font-bold text-gray-800 dark:text-white">
                 Total {activeTab.toUpperCase()} Offers
               </h2>
-              <p className="text-sm text-gray-600 dark:text-gray-500">Percentage of placed
+              <p className="text-[12px] lg:text-sm text-gray-600 dark:text-gray-500">Percentage of placed
                 : {placementPercentage.toFixed(2)}%
               </p>
             </div>
             {/* <p className='text-gray-300 dark:text-gray-700 text-4xl'>|</p> */}
             <div className="flex items-center">
-              <div className="h-12 border-r border-gray-300 dark:border-gray-600 mx-6 "></div>
+              <div className="h-8 border-r border-gray-300 dark:border-gray-600 mx-6 "></div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-gray-800 dark:text-white">
                   {totalPlaced}

@@ -1,4 +1,248 @@
 var companiesData= [
+    {
+      "company": "PHN Technologies",
+      "job_type": "Full Time",
+      "industry": "Technology",
+      "ctc": "INR 5,60,000",
+      "location": "Remote Working",
+      "Date": "13 Jun, 2025",
+      "job_title": "Technolgy Educator & Operations Executive"
+    },
+    {
+      "company": "Kirloskar (KEPL)",
+      "job_type": "Full Time",
+      "industry": null,
+      "ctc": "INR 5,50,000",
+      "location": "Remote Working",
+      "Date": "11 Jun, 2025",
+      "job_title": "GET"
+    },
+    {
+      "company": "Winspire",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 5,00,000",
+      "location": "Remote Working",
+      "Date": "06 Jun, 2025",
+      "job_title": "Trainee- Technical Consultant"
+    },
+    {
+      "company": "Idyllic Services",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,00,000 - INR 3,50,000",
+      "location": "Remote Working",
+      "Date": "06 Jun, 2025",
+      "job_title": "Telecom Fiber Design Engineer"
+    },
+    {
+      "company": "Tsubaki Conveyor Systems",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 4,00,000",
+      "location": "Remote Working",
+      "Date": "29 May, 2025",
+      "job_title": "GET"
+    },
+    {
+      "company": "Softenger India Pvt Ltd",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,50,000",
+      "location": "Remote Working",
+      "Date": "27 May, 2025",
+      "job_title": "Fibre Engineer"
+    },
+    {
+      "company": "Mahindra & mahindra",
+      "job_type": "Internship + Full-Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 5,00,000",
+      "location": "Remote Working",
+      "Date": "07 May, 2025",
+      "job_title": "Graduate Apprentice Trainee"
+    },
+    {
+      "company": "Hatchway Windoor Pvt.Ltd",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 4,00,000",
+      "location": "Remote Working",
+      "Date": "30 Apr, 2025",
+      "job_title": "Site Engineer"
+    },
+    {
+      "company": "SCION Energy",
+      "job_type": "Full Time",
+      "industry": "Others",
+      "ctc": "INR 2,50,000 - INR 3,50,000",
+      "location": "Remote Working",
+      "Date": "28 Apr, 2025",
+      "job_title": "Sales Executive"
+    },
+    {
+      "company": "Praxis Info Solutions",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,50,000",
+      "location": "Remote Working",
+      "Date": "16 Apr, 2025",
+      "job_title": "Trainee SAP Business One Functional Consultant"
+    },
+    {
+      "company": "AdvantEdge Technologies",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,00,000",
+      "location": "Remote Working",
+      "Date": "16 Apr, 2025",
+      "job_title": "Junior Engineer – Operations & Maintenance"
+    },
+    {
+      "company": "HashedIn",
+      "job_type": "Internship + Full-Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 8,10,000",
+      "location": "Remote Working",
+      "Date": "15 Apr, 2025",
+      "job_title": "Trainee Software Engineer"
+    },
+    {
+      "company": "Data Economy",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 6,00,000",
+      "location": "Remote Working",
+      "Date": "08 Apr, 2025",
+      "job_title": "Trainee Software Engineer"
+    },
+    {
+      "company": "IEC AIR TOOLS",
+      "job_type": "Internship + Full-Time",
+      "industry": "IT / ITES",
+      "ctc": "INR 2,50,000 - INR 3,50,000",
+      "location": "Remote Working",
+      "Date": "08 Apr, 2025",
+      "job_title": "Trainee Sales Engineer"
+    },
+    {
+      "company": "Gestamp Pune",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,00,000",
+      "location": "Remote Working",
+      "Date": "29 Mar, 2025",
+      "job_title": "GET"
+    },
+    {
+      "company": "Raja Software Labs (RSL)",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 7,00,000",
+      "location": "Remote Working",
+      "Date": "28 Mar, 2025",
+      "job_title": "Software Developer"
+    },
+    {
+      "company": "Forvis Mazars",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 6,73,000",
+      "location": "Remote Working",
+      "Date": "28 Mar, 2025",
+      "job_title": "Data Analyst - Graduate Trainee Role"
+    },
+    {
+      "company": "Telamon Technolgies",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,35,000 - INR 4,00,000",
+      "location": "Remote Working",
+      "Date": "22 Mar, 2025",
+      "job_title": "Workmen"
+    },
+    {
+      "company": "Capgemini",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 4,25,000 - INR 7,00,000",
+      "location": "Remote Working",
+      "Date": "24 Mar, 2025",
+      "job_title": "Analyst"
+    },
+    {
+      "company": "ARC Contract Management",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 4,25,000",
+      "location": "Remote Working",
+      "Date": "20 Mar, 2025",
+      "job_title": "Associate Functional Analyst"
+    },
+    {
+      "company": "Alada Solutions",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 2,16,000",
+      "location": "Remote Working",
+      "Date": "20 Mar, 2025",
+      "job_title": "Jr. Civil Engineer"
+    },
+    {
+      "company": "ELcom International",
+      "job_type": "Full Time",
+      "industry": "ITES / BPO",
+      "ctc": "INR 2,50,000 - INR 4,00,000",
+      "location": "Remote Working",
+      "Date": "19 Mar, 2025",
+      "job_title": "Sales Engineer"
+    },
+    {
+      "company": "Kanini Software",
+      "job_type": "Internship + Full-Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 4,50,000 - INR 8,00,000",
+      "location": "Remote Working",
+      "Date": "13 Mar, 2025",
+      "job_title": "Software Developer"
+    },
+    {
+      "company": "Target AEC Global",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,50,000",
+      "location": "Remote Working",
+      "Date": "13 Mar, 2025",
+      "job_title": "Trainee Structural Design Engineer."
+    },
+    {
+      "company": "Western Union",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 7,25,000",
+      "location": "Remote Working",
+      "Date": "25 Feb, 2025",
+      "job_title": "GET"
+    },
+    {
+      "company": "AAIS GLOBAL",
+      "job_type": "Full Time",
+      "industry": "IT / Computers - Software",
+      "ctc": "INR 4,20,000",
+      "location": "Remote Working",
+      "Date": "23 Feb, 2025",
+      "job_title": "Associate Consultant"
+    },
+    {
+      "company": "Alfa Pumps",
+      "job_type": "Full Time",
+      "industry": "Core Engineering",
+      "ctc": "INR 3,00,000",
+      "location": "Remote Working",
+      "Date": "21 Feb, 2025",
+      "job_title": "Technical Sales Engineer"
+    }
+  ,
   {
     "company": "REXEL",
     "job_type": "Full Time",

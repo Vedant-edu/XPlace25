@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="dark:bg-zinc-950 border-white dark:border-gray-800">
       <div className="container py-8">
-        <div className="flex flex-col items-center bg-stone-100 dark:bg-gray-950/90 pt-2 rounded-tl-3xl rounded-tr-3xl">
+        {/* <div className="flex flex-col items-center bg-stone-100 dark:bg-gray-950/90 pt-2 rounded-tl-3xl rounded-tr-3xl">
           <span className="text-sm text-gray-600 dark:text-gray-600 text-center  font-semibold">Our Sponsors</span>
 
          <div className="flex gap-10 ">
@@ -30,7 +30,7 @@ export function Footer() {
           </div>
          </div>
         </div>
-        <SponsorLink/>
+        <SponsorLink/> */}
 
         <div className="mt-4">
           <div className="flex items-center gap-2">

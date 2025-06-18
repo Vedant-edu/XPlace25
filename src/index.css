@@ -8,6 +8,8 @@ body {
   font-family: 'Quicksand', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #000;
+
 }
 
 @layer base {
